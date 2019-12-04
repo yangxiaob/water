@@ -1,0 +1,31 @@
+#!/bin/bash
+##this is a very issue for me in 20191204, but it's so easy to me now .
+
+function help_me () {
+  echo"
+Usage:
+     just run 'gitremoteconfig'. 
+"
+   
+}
+helpv=$1
+if [ "$helpv" == "-h" ] || [ "$helpv" == "--help" ]; then
+  help_me
+  exit 1
+fi
+
+echo "
+[user]
+	name = yangxb
+	email = yangxb8588@qq.com
+[color]
+	ui = true
+	status = auto
+	branch = auto
+[core]
+	editor = vi
+[merge]
+	tool = vimdiff
+[remote \"origin\"]
+	url = https://github.com/yangxiaob/water.git
+" > ~/.gitconfig
