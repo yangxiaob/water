@@ -1,0 +1,14 @@
+#!/bin/bash
+filename=$1
+if [ -z "$filename" ] || [ "$filename" == "-h" ] || [ "$filename" == "--help" ]; then
+  echo "
+Usage:
+    rename2o [filename]
+
+DESCRIPTION:
+    [filename] is file or dir will be renamed.
+"
+exit 1
+fi
+dotofile=`echo "$filename" | rev | cut -c 2- | rev`"o"
+mv $filename $dotofile
