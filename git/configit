@@ -1,0 +1,17 @@
+#!/bin/bash
+username=$1
+email=$2
+if [ "$username" == "" ] || [ "$username" == "" ] || [ "$username" == "" ]; then
+  echo "
+NAME:
+    configit -- configure git's configuration.
+USAGE:
+    configit [username] [email]
+    [username] use git's user name
+    [email] the email is used git server  
+"
+exit 1
+fi
+
+git config --global user.name $username
+git config --global user.email $email
