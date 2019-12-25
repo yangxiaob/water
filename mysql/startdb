@@ -1,0 +1,4 @@
+#!/bin/bash
+service mysqld status
+service mysqld start 
+service mysqld status

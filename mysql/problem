@@ -1,0 +1,6 @@
+#!/bin/bash
+#https://serverfault.com/questions/873955/how-solve-mysql-5-7-dependency
+yum remove mysql57-community-release.noarch
+yum clean all
+yum install https://dev.mysql.com/get/mysql57-community-release-el6-11.noarch.rpm
+yum install mysql-community-server

@@ -1,0 +1,4 @@
+1.ERROR 1130 (HY000): Host '192.168.184.1' is not allowed to connect to this MySQL server
+resolve:
+create user 'root'@'192.168.184.1' identified by 'passwd';
+grant all privileges on *.* to 'root'@'192.168.184.1';

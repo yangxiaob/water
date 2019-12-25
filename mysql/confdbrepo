@@ -1,0 +1,32 @@
+#!/bin/bash
+
+firstargument=$1
+function help_info(){
+  echo "
+NAME:
+    confdbrepo -- configure mysql database's repository.
+USAGE:
+    confdbrepo
+    just run the command -- confdbrepo.
+"
+exit 1
+}
+
+if [ "$firstargument" == "--help" ] || [ "$firstargument" == "-h" ]; then
+  help_info
+fi
+dbrepo="/etc/yum.repos.d/CentOS-db.repo"
+touch $dbrepo
+echo "
+# Enable to use MySQL 5.7
+[mysql57-community]
+name=MySQL 5.7 Community Server
+baseurl=http://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/
+enabled=1
+gpgcheck=0
+#gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+" >> $dbrepo
+echo -e "repo : \e[1,31m$dbrepo\e[0m"
+yum clean
+yum makecache
+yum repolist enabled | grep "mysql.*-community.*"

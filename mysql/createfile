@@ -1,0 +1,7 @@
+#!/bin/bash
+file=$1
+if [ ! -e $file ]; then
+  mkdir -p $file
+  exit 1
+fi
+echo "$file exit"

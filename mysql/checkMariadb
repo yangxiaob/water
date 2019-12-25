@@ -1,0 +1,28 @@
+#!/bin/bash
+
+firstargument=$1
+function help_info(){
+  echo "
+NAME:
+    checkMariadb -- check database in OS.
+USAGE:
+    checkMariadb
+    just run the command -- checkMariadb
+"
+exit 1
+}
+
+if [ "$firstargument" == "--help" ] || [ "$firstargument" == "-h" ];then
+  help_info
+fi
+db=`rpm -aq | grep "mariadb"`
+rt=$?
+if [ "$rt" == "0" ]; then
+  echo -e "database : \e[1;31m $db \e[0m"
+  rpm -e --nodeps $db
+  rt=$?
+fi
+
+if [ "$rt" == "0" ]; then
+  echo -e "Removed the database : \e[1;31m$db\e[0m "
+fi
