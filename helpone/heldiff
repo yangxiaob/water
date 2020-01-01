@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "
+diff
+a : add
+c : change
+d : delete
+"

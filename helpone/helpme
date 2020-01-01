@@ -1,0 +1,25 @@
+#!/bin/bash
+hc=$1
+function helpme(){
+  echo "
+NAME:
+      helpme -- help you and me resolve the problem that you or me have encounte
+r
+SYNOPSIS:
+      helpme [option]
+"
+}
+case $hc in
+"")
+  helpme  
+;;
+-h)
+  helpme
+;;
+--help)
+helpme
+;;
+--diff)
+./heldiff
+;;
+esac
